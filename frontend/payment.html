@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - TiFFLu</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/layout.css">
+</head>
+
+<body>
+    <header id="main-header">
+        <div class="container nav-container">
+            <a href="home.html" class="logo"><i class="ri-restaurant-2-fill"></i> TiFFLu</a>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="section-padding">
+            <div class="container grid-2">
+                <div>
+                    <h2>Choose Payment Method</h2>
+                    <div class="card" style="margin-bottom: 1rem; cursor: pointer; border: 2px solid var(--primary);">
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <i class="ri-qr-code-line" style="font-size: 1.5rem;"></i>
+                            <div>
+                                <h3 style="margin: 0;">UPI / QR Code</h3>
+                                <p style="margin: 0; font-size: 0.8rem; color: #666;">Google Pay, PhonePe, Paytm</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card" style="margin-bottom: 1rem; cursor: pointer;">
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <i class="ri-bank-card-line" style="font-size: 1.5rem;"></i>
+                            <div>
+                                <h3 style="margin: 0;">Credit / Debit Card</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card" style="margin-bottom: 1rem; cursor: pointer;">
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <i class="ri-hand-coin-line" style="font-size: 1.5rem;"></i>
+                            <div>
+                                <h3 style="margin: 0;">Cash on Delivery</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Summary</h3>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                        <span>To Pay</span>
+                        <span style="font-weight: 700;">₹320</span>
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%;"
+                        onclick="alert('Payment Successful! Order Placed.'); window.location.href='dashboard.html'">Pay
+                        Now</button>
+                    <button class="btn btn-secondary" style="width: 100%; margin-top: 0.5rem;"
+                        onclick="window.history.back()">Cancel</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

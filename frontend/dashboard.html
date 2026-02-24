@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - TiFFLu</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/layout.css">
+</head>
+
+<body>
+    <header id="main-header">
+        <div class="container nav-container">
+            <a href="home.html" class="logo"><i class="ri-restaurant-2-fill"></i> TiFFLu</a>
+            <nav class="nav-links">
+                <a href="home.html" class="nav-link">Home</a>
+                <a href="menu.html" class="nav-link">Menu</a>
+                <a href="dashboard.html" class="nav-link active">Dashboard</a>
+            </nav>
+            <div class="nav-actions">
+                <div
+                    style="width: 40px; height: 40px; background: #eee; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                    <i class="ri-user-smile-line"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="section-padding">
+            <div class="container grid-2" style="grid-template-columns: 250px 1fr; align-items: start;">
+                <!-- Sidebar -->
+                <div class="card">
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;"><a href="#" class="btn btn-ghost"
+                                style="width: 100%; justify-content: flex-start; background: #eee;"><i
+                                    class="ri-dashboard-line"></i> Overview</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="cart.html" class="btn btn-ghost"
+                                style="width: 100%; justify-content: flex-start;"><i class="ri-shopping-bag-3-line"></i>
+                                Orders</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="subscription.html" class="btn btn-ghost"
+                                style="width: 100%; justify-content: flex-start;"><i class="ri-calendar-check-line"></i>
+                                Subscriptions</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#" class="btn btn-ghost"
+                                style="width: 100%; justify-content: flex-start;"><i class="ri-settings-4-line"></i>
+                                Settings</a></li>
+                    </ul>
+                </div>
+
+                <!-- Content -->
+                <div>
+                    <h2 style="margin-bottom: 1.5rem;">Hello, User!</h2>
+                    <div class="grid-3" style="margin-bottom: 2rem;">
+                        <div class="card" style="background: #E3F2FD;">
+                            <h3>Active Orders</h3>
+                            <p style="font-size: 2rem; font-weight: 700;">2</p>
+                        </div>
+                        <div class="card" style="background: #E8F5E9;">
+                            <h3>Total Spent</h3>
+                            <p style="font-size: 2rem; font-weight: 700;">₹4,500</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Recent Activity</h3>
+                        <p style="color: #666;">No recent orders placed.</p>
+                        <a href="menu.html" class="btn btn-primary" style="margin-top: 1rem;">Order Food</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

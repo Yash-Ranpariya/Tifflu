@@ -1,0 +1,12 @@
+{
+    "name": "tifflu-vanilla",
+    "version": "1.0.0",
+    "type": "module",
+    "description": "Premium Tiffin Service - Vanilla JS",
+    "scripts": {
+        "start": "npx serve ."
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+}

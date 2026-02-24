@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - TiFFLu</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+
+<body>
+    <header id="main-header">
+        <div class="container nav-container">
+            <a href="home.html" class="logo"><i class="ri-restaurant-2-fill"></i> TiFFLu</a>
+            <nav class="nav-links">
+                <a href="home.html" class="nav-link">Home</a>
+                <a href="login.html" class="nav-link">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content" style="display: flex; align-items: center; min-height: 80vh;">
+        <div class="container" style="max-width: 400px;">
+            <div class="card animate-fade-in">
+                <h2 class="text-center" style="margin-bottom: 1.5rem;">Create Account</h2>
+                <form action="login.html">
+                    <div class="input-group">
+                        <label class="input-label">Full Name</label>
+                        <input type="text" class="input-field" placeholder="John Doe" required>
+                    </div>
+                    <div class="input-group">
+                        <label class="input-label">Email Address</label>
+                        <input type="email" class="input-field" placeholder="john@example.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label class="input-label">Password</label>
+                        <input type="password" class="input-field" placeholder="Create a password" required>
+                    </div>
+                    <div class="input-group">
+                        <label class="input-label">Role</label>
+                        <select class="input-field">
+                            <option value="customer">Customer</option>
+                            <option value="vendor">Tiffin Service Provider</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Sign Up</button>
+                </form>
+                <p class="text-center" style="margin-top: 1rem;">
+                    Already have an account? <a href="login.html">Login</a>
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

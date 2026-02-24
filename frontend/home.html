@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - TiFFLu</title>
+    <meta name="description" content="Authentic Homemade, Mess, and Hotel Food Delivery Service">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="main-header">
+        <div class="container nav-container">
+            <a href="home.html" class="logo">
+                <i class="ri-restaurant-2-fill"></i> TiFFLu
+            </a>
+
+            <nav class="nav-links">
+                <a href="home.html" class="nav-link active">Home</a>
+                <a href="menu.html" class="nav-link">Menu</a>
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="btn-icon" onclick="window.location.href = 'cart.html'">
+                    <i class="ri-shopping-cart-2-line"></i>
+                </button>
+
+                <button class="btn btn-primary" onclick="window.location.href = 'login.html'">
+                    Login
+                </button>
+
+                <button class="btn-icon" onclick="window.app.toggleTheme()">
+                    <i class="ri-contrast-2-line"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section"
+            style="position: relative; min-height: 90vh; display: flex; align-items: center; overflow: hidden;">
+            <div class="container grid-2" style="align-items: center; position: relative;">
+                <div class="hero-content reveal-on-scroll">
+                    <span
+                        style="display: inline-block; padding: 0.5rem 1rem; background: rgba(255, 107, 53, 0.1); color: var(--primary); border-radius: 50px; font-weight: 600; margin-bottom: 1rem;">
+                        <i class="ri-rocket-line"></i> #1 Tiffin Service in Indore
+                    </span>
+                    <h1 style="font-size: 3.5rem; margin-bottom: 1.5rem;">
+                        Craving <span class="text-primary">Ghar Ka Khana?</span> <br> We Deliver Love.
+                    </h1>
+                    <p style="font-size: 1.2rem; color: #666; margin-bottom: 2rem; max-width: 500px;">
+                        Explore top-rated Hotels, Messes, and Homemade Tiffin services near you. Fresh, hygienic, and
+                        affordable.
+                    </p>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="menu.html" class="btn btn-primary">Order Now <i class="ri-arrow-right-line"></i></a>
+                        <a href="subscription.html" class="btn btn-secondary">Get Subscription</a>
+                    </div>
+                </div>
+
+                <div class="hero-image reveal-on-scroll delay-200" style="position: relative;">
+                    <img src="assets/standard_veg_thali.png" alt="Delicious Thali"
+                        style="width: 100%; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.2));">
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="section-padding reveal-on-scroll" style="background: var(--surface);">
+            <div class="container">
+                <div class="text-center" style="margin-bottom: 3rem;">
+                    <h2>Order From Your Favorite Source</h2>
+                    <p style="color: #666;">Choose from verified kitchens across the city</p>
+                </div>
+
+                <div class="grid-3">
+                    <div class="card glass-card text-center" style="cursor: pointer;"
+                        onclick="window.location.href='menu.html'">
+                        <div
+                            style="background: #FFF3E0; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; color: var(--primary);">
+                            <i class="ri-hotel-line"></i>
+                        </div>
+                        <h3>Premium Hotels</h3>
+                        <p style="color: #666;">Restaurant style taste with wide variety of cuisines.</p>
+                    </div>
+
+                    <div class="card glass-card text-center" style="cursor: pointer;"
+                        onclick="window.location.href='menu.html'">
+                        <div
+                            style="background: #E8F5E9; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; color: var(--secondary);">
+                            <i class="ri-community-line"></i>
+                        </div>
+                        <h3>Student Mess</h3>
+                        <p style="color: #666;">Budget friendly daily meals perfect for students.</p>
+                    </div>
+
+                    <div class="card glass-card text-center" style="cursor: pointer;"
+                        onclick="window.location.href='menu.html'">
+                        <div
+                            style="background: #E3F2FD; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; color: var(--info);">
+                            <i class="ri-home-smile-line"></i>
+                        </div>
+                        <h3>Homemade</h3>
+                        <p style="color: #666;">Authentic "Maa ke haath ka swaad" from local kitchens.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- App Download CTA -->
+        <section class="section-padding reveal-on-scroll" style="background: var(--primary);">
+            <div class="container grid-2" style="align-items: center;">
+                <div style="color: white;">
+                    <h2>Get the Full Experience</h2>
+                    <p style="margin-bottom: 2rem; opacity: 0.9;">Download our mobile app to track your live orders, get
+                        exclusive discounts, and manage subscriptions on the go.</p>
+                    <div style="display: flex; gap: 1rem;">
+                        <button class="btn"
+                            style="background: black; color: white; border: 1px solid rgba(255,255,255,0.2);">
+                            <i class="ri-google-play-fill" style="font-size: 1.5rem;"></i> Play Store
+                        </button>
+                        <button class="btn"
+                            style="background: black; color: white; border: 1px solid rgba(255,255,255,0.2);">
+                            <i class="ri-apple-fill" style="font-size: 1.5rem;"></i> App Store
+                        </button>
+                    </div>
+                </div>
+                <div style="text-align: center;">
+                    <i class="ri-smartphone-line" style="font-size: 10rem; color: rgba(255,255,255,0.2);"></i>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="main-footer" style="background: #1a1a1a; color: white; padding: 4rem 0;">
+        <div class="container">
+            <div class="grid-4">
+                <div>
+                    <h2 class="logo" style="margin-bottom: 1.5rem; color: white;">
+                        <i class="ri-restaurant-2-fill"></i> TiFFLu
+                    </h2>
+                    <p style="opacity: 0.7;">Best quality tiffin service at your doorstep. Fresh, Hygienic, and Tasty.
+                    </p>
+                </div>
+                <div>
+                    <h3>Quick Links</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li><a href="home.html" style="color: rgba(255,255,255,0.7); text-decoration: none;">Home</a>
+                        </li>
+                        <li><a href="menu.html" style="color: rgba(255,255,255,0.7); text-decoration: none;">Menu</a>
+                        </li>
+                        <li><a href="contact.html" style="color: rgba(255,255,255,0.7); text-decoration: none;">Contact
+                                Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Legal</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li><a href="#" style="color: rgba(255,255,255,0.7); text-decoration: none;">Privacy Policy</a>
+                        </li>
+                        <li><a href="#" style="color: rgba(255,255,255,0.7); text-decoration: none;">Terms of
+                                Service</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Contact</h3>
+                    <p style="opacity: 0.7; margin-bottom: 0.5rem;"><i class="ri-map-pin-line"></i> Indore, India</p>
+                    <p style="opacity: 0.7; margin-bottom: 0.5rem;"><i class="ri-mail-line"></i> support@tifflu.com</p>
+                    <p style="opacity: 0.7;"><i class="ri-phone-line"></i> +91 98765 43210</p>
+                </div>
+            </div>
+            <div
+                style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 3rem; padding-top: 1.5rem; text-align: center; opacity: 0.5;">
+                <p>&copy; 2024 TiFFLu. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- Main Logic (Store, Effects, Chatbot) -->
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

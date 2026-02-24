@@ -1,0 +1,49 @@
+:root {
+    /* Brand Colors - Foodie Palette */
+    --primary: #FF6B35;
+    /* Zesty Orange */
+    --primary-dark: #E85D2A;
+    --secondary: #2C5F2D;
+    /* Fresh Basil Green */
+    --accent: #FFD93D;
+    /* Sunny Yellow */
+
+    /* Neutral Colors / Glassmorphism */
+    --background: #FDFBF7;
+    /* Creamy White */
+    --surface: #FFFFFF;
+    --surface-glass: rgba(255, 255, 255, 0.85);
+    --surface-glass-dark: rgba(20, 20, 20, 0.6);
+
+    /* Text Colors */
+    --text-main: #1A1A1A;
+    --text-muted: #666666;
+    --text-light: #FDFBF7;
+
+    /* Semantic */
+    --success: #4CAF50;
+    --error: #FF5252;
+    --warning: #FFC107;
+    --info: #2196F3;
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.12);
+    --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+
+    /* Animation */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-bounce: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dark-mode {
+    --background: #121212;
+    --surface: #1E1E1E;
+    --surface-glass: rgba(30, 30, 30, 0.85);
+    --text-main: #FDFBF7;
+    --text-muted: #A0A0A0;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+}

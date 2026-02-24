@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - TiFFLu</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+
+<body>
+    <header id="main-header">
+        <div class="container nav-container">
+            <a href="home.html" class="logo"><i class="ri-restaurant-2-fill"></i> TiFFLu</a>
+            <nav class="nav-links">
+                <a href="home.html" class="nav-link">Home</a>
+                <a href="register.html" class="nav-link">Sign Up</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content" style="display: flex; align-items: center; min-height: 80vh;">
+        <div class="container" style="max-width: 400px;">
+            <div class="card animate-fade-in">
+                <h2 class="text-center" style="margin-bottom: 1.5rem;">Welcome Back</h2>
+                <form onsubmit="return window.app.handleLogin(event)">
+                    <div class="input-group">
+                        <label class="input-label">Email Address</label>
+                        <input type="email" class="input-field" placeholder="john@example.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label class="input-label">Password</label>
+                        <input type="password" class="input-field" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+                </form>
+                <p class="text-center" style="margin-top: 1rem;">
+                    New to TiFFLu? <a href="register.html">Create an account</a>
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

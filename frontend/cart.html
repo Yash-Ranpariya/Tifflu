@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - TiFFLu</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/layout.css">
+</head>
+
+<body>
+    <header id="main-header">
+        <div class="container nav-container">
+            <a href="home.html" class="logo"><i class="ri-restaurant-2-fill"></i> TiFFLu</a>
+            <nav class="nav-links">
+                <a href="home.html" class="nav-link">Home</a>
+                <a href="menu.html" class="nav-link">Menu</a>
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="btn btn-primary" onclick="window.location.href = 'login.html'">Login</button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="section-padding">
+            <div class="container">
+                <h1>Your Cart</h1>
+                <div class="grid-2" style="grid-template-columns: 2fr 1fr; align-items: start;">
+                    <div class="card">
+                        <!-- Mock Cart Item -->
+                        <div
+                            style="display: flex; gap: 1rem; border-bottom: 1px solid #eee; padding-bottom: 1rem; margin-bottom: 1rem;">
+                            <img src="assets/deluxe_veg_thali.png"
+                                style="width: 80px; height: 80px; border-radius: 8px; object-fit: cover;">
+                            <div style="flex: 1;">
+                                <h3>Deluxe Veg Thali</h3>
+                                <p style="color: #666;">Standard Tiffin</p>
+                                <div style="display: flex; align-items: center; gap: 1rem; margin-top: 0.5rem;">
+                                    <button class="btn-icon btn-sm" onclick="alert('Decrease Quantity')">-</button>
+                                    <span>2</span>
+                                    <button class="btn-icon btn-sm" onclick="alert('Increase Quantity')">+</button>
+                                </div>
+                            </div>
+                            <div style="text-align: right;">
+                                <p style="font-weight: 700;">₹300</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Bill Details</h3>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span>Item Total</span>
+                            <span>₹300</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span>Delivery Fee</span>
+                            <span>₹20</span>
+                        </div>
+                        <hr>
+                        <div
+                            style="display: flex; justify-content: space-between; margin-bottom: 1rem; font-weight: 700;">
+                            <span>To Pay</span>
+                            <span>₹320</span>
+                        </div>
+                        <button class="btn btn-primary" style="width: 100%;"
+                            onclick="window.location.href='payment.html'">Proceed to Pay</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

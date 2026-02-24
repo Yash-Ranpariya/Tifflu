@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - TiFFLu</title>
+    <meta name="description" content="Explore our delicious menu items">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="main-header">
+        <div class="container nav-container">
+            <a href="home.html" class="logo">
+                <i class="ri-restaurant-2-fill"></i> TiFFLu
+            </a>
+
+            <nav class="nav-links">
+                <a href="home.html" class="nav-link">Home</a>
+                <a href="menu.html" class="nav-link active">Menu</a>
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="btn-icon" onclick="window.location.href = 'cart.html'">
+                    <i class="ri-shopping-cart-2-line"></i>
+                </button>
+
+                <button class="btn btn-primary" onclick="window.location.href = 'login.html'">
+                    Login
+                </button>
+
+                <button class="btn-icon" onclick="window.app.toggleTheme()">
+                    <i class="ri-contrast-2-line"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main id="main-content">
+        <section class="section-padding">
+            <div class="container">
+                <div class="text-center" style="margin-bottom: 3rem;">
+                    <h1>Our Menu</h1>
+                    <p style="color: #666;">Freshly cooked meals delivered to your doorstep</p>
+                </div>
+
+                <!-- Chef's Special Section -->
+                <div class="reveal-on-scroll" style="margin-bottom: 3rem;">
+                    <div
+                        style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; justify-content: center;">
+                        <i class="ri-medal-fill" style="color: #FFD700; font-size: 2rem;"></i>
+                        <h2 style="margin: 0;">Chef's Specials</h2>
+                        <i class="ri-medal-fill" style="color: #FFD700; font-size: 2rem;"></i>
+                    </div>
+
+                    <div class="grid-3" id="chefs-special-container">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <hr style="border: 0; border-top: 1px solid #eee; margin: 3rem 0;">
+
+                <div class="text-center reveal-on-scroll" style="margin-bottom: 3rem;">
+                    <h2>Full Menu</h2>
+                </div>
+
+                <!-- Filters -->
+                <div class="reveal-on-scroll"
+                    style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
+                    <button class="btn btn-primary" onclick="window.app.filterMenu('All')">All</button>
+                    <button class="btn btn-secondary" onclick="window.app.filterMenu('Hotel')">Hotel</button>
+                    <button class="btn btn-secondary" onclick="window.app.filterMenu('Mess')">Mess</button>
+                    <button class="btn btn-secondary" onclick="window.app.filterMenu('Homemade')">Homemade</button>
+                </div>
+
+                <!-- Menu Grid -->
+                <div class="grid-3 reveal-on-scroll" id="menu-container">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="main-footer" style="background: #1a1a1a; color: white; padding: 4rem 0;">
+        <div class="container">
+            <p style="text-align: center; opacity: 0.5;">&copy; 2024 TiFFLu. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

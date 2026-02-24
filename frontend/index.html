@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - TiFFLu</title>
+    <meta name="description" content="Authentic Homemade, Mess, and Hotel Food Delivery Service">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/toast.css">
+
+    <!-- Error Handler -->
+    <script>
+        window.onerror = function (msg, url, line, col, error) {
+            const div = document.createElement('div');
+            div.style.cssText = 'position:fixed; top:0; left:0; width:100%; padding:20px; background:#ffebee; color:#c62828; border-bottom:2px solid #b71c1c; z-index:99999; font-family:sans-serif;box-shadow:0 4px 10px rgba(0,0,0,0.2);';
+            div.innerHTML = `<strong>TiFFLu Error:</strong> ${msg}<br><small>${url}:${line}:${col}</small>`;
+            document.body ? document.body.prepend(div) : window.addEventListener('load', () => document.body.prepend(div));
+            console.error('Captured Error:', error);
+            return false;
+        };
+    </script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="main-header">
+        <div class="container nav-container">
+            <a href="#/" class="logo">
+                <i class="ri-restaurant-2-fill"></i> TiFFLu
+            </a>
+
+            <nav class="nav-links">
+                <a href="#/" class="nav-link active">Home</a>
+                <a href="#/menu" class="nav-link">Menu</a>
+                <a href="#/dashboard" class="nav-link">Dashboard</a>
+                <a href="#/contact" class="nav-link">Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="btn-icon" onclick="window.location.hash = '#/cart'">
+                    <i class="ri-shopping-cart-2-line"></i>
+                </button>
+
+                <button class="btn btn-primary" onclick="window.location.hash = '#/login'">
+                    Login
+                </button>
+
+                <button class="btn-icon" onclick="window.app.toggleTheme()">
+                    <i class="ri-contrast-2-line"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main id="main-content">
+        <!-- SPA Content Injected Here -->
+    </main>
+
+    <!-- Footer -->
+    <footer id="main-footer" style="background: #1a1a1a; color: white; padding: 4rem 0;">
+        <div class="container">
+            <div class="grid-4">
+                <div>
+                    <h2 class="logo" style="margin-bottom: 1.5rem; color: white;">
+                        <i class="ri-restaurant-2-fill"></i> TiFFLu
+                    </h2>
+                    <p style="opacity: 0.7;">Best quality tiffin service at your doorstep. Fresh, Hygienic, and Tasty.
+                    </p>
+                </div>
+                <div>
+                    <h3>Quick Links</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li><a href="#/" style="color: rgba(255,255,255,0.7); text-decoration: none;">Home</a>
+                        </li>
+                        <li><a href="#/menu" style="color: rgba(255,255,255,0.7); text-decoration: none;">Menu</a>
+                        </li>
+                        <li><a href="#/contact" style="color: rgba(255,255,255,0.7); text-decoration: none;">Contact
+                                Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Legal</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li><a href="#" style="color: rgba(255,255,255,0.7); text-decoration: none;">Privacy Policy</a>
+                        </li>
+                        <li><a href="#" style="color: rgba(255,255,255,0.7); text-decoration: none;">Terms of
+                                Service</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Contact</h3>
+                    <p style="opacity: 0.7; margin-bottom: 0.5rem;"><i class="ri-map-pin-line"></i> Indore, India</p>
+                    <p style="opacity: 0.7; margin-bottom: 0.5rem;"><i class="ri-mail-line"></i> support@tifflu.com</p>
+                    <p style="opacity: 0.7;"><i class="ri-phone-line"></i> +91 98765 43210</p>
+                </div>
+            </div>
+            <div
+                style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 3rem; padding-top: 1.5rem; text-align: center; opacity: 0.5;">
+                <p>&copy; 2024 TiFFLu. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- Main Logic using Modules -->
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
