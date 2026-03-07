@@ -2,6 +2,7 @@
  * Menu Page
  */
 import { renderFoodCard } from '../components/food-card.js';
+import { aiService } from '../ai-service.js';
 
 export const renderMenu = () => {
     // Get items from store
@@ -59,6 +60,45 @@ export const renderMenu = () => {
         window.filterMenu(initialCategory);
         renderSpecials(window.app.store.getState().menuItems);
 
+        // Attach Mood AI Logic
+        window.findMoodFood = async () => {
+            const input = document.getElementById('mood-input');
+            const mood = input.value.trim();
+            if (!mood) return;
+
+            const resContainer = document.getElementById('mood-results-container');
+            const loadSpan = document.getElementById('mood-loading');
+            const grid = document.getElementById('mood-grid');
+
+            resContainer.style.display = 'block';
+            loadSpan.style.display = 'inline-block';
+            grid.innerHTML = '';
+
+            try {
+                const currentMenu = window.app.store.getState().menuItems;
+                const matchedIds = await aiService.suggestFoodByMood(mood, currentMenu);
+
+                loadSpan.style.display = 'none';
+
+                if (!matchedIds || matchedIds.length === 0) {
+                    grid.innerHTML = '<p style="grid-column: 1/-1;">Could not find a match right now.</p>';
+                } else {
+                    const matchedItems = currentMenu.filter(item => matchedIds.includes(item.id) || matchedIds.includes(String(item.id)));
+                    if (matchedItems.length > 0) {
+                        grid.innerHTML = matchedItems.map(item => renderFoodCard(item)).join('');
+                    } else {
+                        grid.innerHTML = '<p style="grid-column: 1/-1;">Could not find a match right now.</p>';
+                    }
+                }
+            } catch (e) {
+                loadSpan.style.display = 'none';
+                let errorMsg = e.message.includes("No API Key")
+                    ? "Please set your Gemini API key in the Chatbot first!"
+                    : `AI Error: ${e.message}`;
+                grid.innerHTML = `<p style="color:red; grid-column: 1/-1;">${errorMsg}</p>`;
+            }
+        };
+
         // SUBSCRIBE to store updates (fixes race condition)
         window.app.store.subscribe((newState) => {
             const currentHash = window.location.hash;
@@ -97,6 +137,20 @@ export const renderMenu = () => {
                     <p style="color: #666;">Fresh, Hygienic, and Delicious</p>
                 </div>
                 
+                <!-- MOOD AI SUGGESTER -->
+                <div class="reveal-on-scroll card glass-card" style="margin-bottom: 3rem; text-align: center; max-width: 700px; margin-left: auto; margin-right: auto; border: 2px solid var(--primary); padding: 2rem;">
+                    <h3 style="margin-bottom: 1rem;"><i class="ri-magic-line"></i> AI Mood-Based Suggestions</h3>
+                    <p style="margin-bottom: 1.5rem; color:#666; font-size:1rem;">Tell us what mood you're in, and our AI will pick the perfect food from the menu for you!</p>
+                    <div style="display:flex; gap:0.5rem; justify-content:center; max-width: 500px; margin: 0 auto;">
+                        <input type="text" id="mood-input" placeholder="E.g. Feeling sad, need something sweet..." style="flex:1; padding:0.8rem; border-radius:8px; border:1px solid #ddd; outline: none;">
+                        <button class="btn btn-primary" onclick="window.findMoodFood()">Suggest Food</button>
+                    </div>
+                    <div id="mood-results-container" style="margin-top: 2rem; display:none; background: var(--surface); padding: 1rem; border-radius: 12px;">
+                        <p id="mood-loading" style="display:none; color: var(--primary); font-weight: 500;"><i class="ri-loader-4-line ri-spin" style="margin-right: 5px;"></i> AI is reading the menu...</p>
+                        <div id="mood-grid" class="grid-2" style="text-align: left;"></div>
+                    </div>
+                </div>
+
                 ${specials.length > 0 ? `
                 <!-- Chef's Specials -->
                 <div class="reveal-on-scroll" style="margin-bottom: 3rem;">

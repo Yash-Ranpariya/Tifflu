@@ -3,6 +3,8 @@
  * A smart assistant backed by MULTIPLE internal databases.
  */
 
+import { aiService } from '../ai-service.js';
+
 export class ChatBot {
     constructor() {
         this.isOpen = false;
@@ -412,79 +414,45 @@ export class ChatBot {
         this.messagesContainer.appendChild(typingDiv);
         this.scrollToBottom();
 
-        await new Promise(r => setTimeout(r, 900));
-        typingDiv.remove();
+        const lower = text.toLowerCase().trim();
 
-        const response = this.generateResponse(text);
-        this.addMessage(response, true);
-    }
-
-    generateResponse(input) {
-        const lower = input.toLowerCase();
-
-        // 1. QUERY NUTRITION DB
-        // Check for "calories", "protein", "nutrition" or just the food name
-        for (const [food, info] of Object.entries(this.nutritionDB)) {
-            if (lower.includes(food)) {
-                return `<b>🔍 Found in Nutrition DB:</b><br>${info}`;
-            }
+        // 1. Save API Key
+        if (lower.startsWith('key:')) {
+            setTimeout(() => {
+                typingDiv.remove();
+                aiService.setApiKey(text.substring(4).trim());
+                this.addMessage("✅ Gemini API Key saved! Ask me anything about food now! 🍔", true);
+            }, 500);
+            return;
         }
 
-        // 2. QUERY CUISINE DB
-        // Check for specific dishes
-        for (const [dish, desc] of Object.entries(this.cuisineDB)) {
-            if (lower.includes(dish)) {
-                return `<b>🌏 Found in Cuisine DB:</b><br>${desc}`;
-            }
+        // 2. Prompt for API Key if Missing
+        if (!aiService.hasApiKey()) {
+            setTimeout(() => {
+                typingDiv.remove();
+                this.addMessage("Hi! I am the TiFFLu AI Chatbot. 🤖<br><br>To chat smartly with me, please provide a <b>Gemini API Key</b> by typing:<br><br><code>key: YOUR_API_KEY</code>", true);
+            }, 500);
+            return;
         }
 
-        // 3. QUERY DIET PLANS DB
-        // Check for plan names
-        for (const [plan, details] of Object.entries(this.planDB)) {
-            if (lower.includes(plan)) {
-                return `<b>📋 Found in Diet Plan DB:</b><br>${details}`;
-            }
-        }
-
-        // 4. RANDOM HEALTH TIPS
-        if (lower.includes('tip') || lower.includes('advice') || lower.includes('health')) {
-            const randomTip = this.tipsDB[Math.floor(Math.random() * this.tipsDB.length)];
-            return `<b>💡 Daily Health Tip:</b><br>${randomTip}`;
-        }
-
-        // 5. WEIGHT LOGIC (Legacy Support)
-        const weightMatch = lower.match(/(\d+)\s*kg/);
-        if (weightMatch) {
-            const weight = parseInt(weightMatch[1]);
-            return `<b>⚖️ Weight Analysis (${weight}kg):</b><br>` +
-                (weight > 80 ? "Goal: Cut Calories. Try Intermittent Fasting!" :
-                    weight < 50 ? "Goal: Surplus. Check out our Muscle Gain plan!" :
-                        "Goal: Maintenance. Keep eating healthy!");
-        }
-
-        // 6. WEBSITE NAVIGATION
+        // 3. Web Nav & Hardcoded Intercepts
         for (const [key, link] of Object.entries(this.siteDB)) {
-            if (lower.includes(key)) {
+            if (lower.includes(key) && lower.includes('go to')) {
+                typingDiv.remove();
                 window.setTimeout(() => window.location.hash = link, 1000);
-                return `navigating to <b>${key.toUpperCase()}</b>...`;
+                this.addMessage(`Navigating to <b>${key.toUpperCase()}</b>...`, true);
+                return;
             }
         }
 
-        // 7. SOCIAL / CONVERSATIONAL (New "Social Intelligence")
-        if (lower.includes('love you')) return "Aww! I love you too! ❤️ But I only have eyes for food! 🍕";
-        if (lower.includes('hate you')) return "Ouch! 💔 I'll try to do better next time.";
-        if (lower.includes('marry me')) return "I'm already married to the kitchen! 💍🍳";
-        if (lower.includes('who are you')) return "I'm <b>TiFFLu's Assistant</b>! 🤖 I help you track calories, find recipes, and stay healthy.";
-        if (lower.includes('how are you')) return "I'm feeling fresh like a salad! 🥗 How are you?";
-        if (lower.includes('thank')) return "You're welcome! 🥘 Happy eating!";
-        if (lower.includes('good morning')) return "Good Morning! ☀️ Time for a healthy breakfast?";
-        if (lower.includes('good night')) return "Good Night! 🌙 Don't eat too late!";
+        // 4. Send to Gemini
+        const systemPrompt = `You are TiFFLu AI, the smart foodie assistant for the TiFFLu food delivery application. Your goal is to talk to the user about food, nutrition, mood and diets. You can also converse in Gujarati, Hindi or English, matching the user's language. If they ask about unrelated stuff, politely redirect them to food. Keep responses very short (max 2-3 sentences max) and you may use basic HTML like <b> for bold, and some fun emojis.
+        
+        User input: "${text}"`;
 
-        // Conversational (Basic)
-        if (lower.includes('hi') || lower.includes('hello') || lower.includes('hey')) return "Beep Boop! 🦾 I am the Mega-Bot. Ask me about food!";
-        if (lower.includes('bye')) return "See you later! 👋 Don't forget to drink water!";
+        const responseText = await aiService.getAIResponse(systemPrompt);
 
-        // 8. FALLBACK (Improved)
-        return `Hmm, I checked my cookbook 📖 but couldn't find that! <br><br><b>Try asking me:</b><br>• "Calories in pizza" 🍕<br>• "What is Keto?" 🥑<br>• "Give me a health tip" 💡`;
+        typingDiv.remove();
+        this.addMessage(responseText, true);
     }
 }
